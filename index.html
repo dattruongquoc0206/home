@@ -7,18 +7,18 @@
   <title>Document</title>
 </head>
 <body >
-  <iframe src="https://nbviewer.org/" height="100%" width="100%" title="description" style="border:none; position: absolute; top: 0; right: 0; bottom: 0: left: 0;" ></iframe>
+  <iframe id="myFrame" src="https://nbviewer.org/" height="100%" width="100%" title="description" style="border:none; position: absolute; top: 0; right: 0; bottom: 0: left: 0;"></iframe>
   <script>
     function greet() {
-      document.getElementById("main-input").value = "https://github.com/twelfthywn/home/blob/main/20521180_BaiThucHanh1.ipynb";
-      var list=document.getElementsByClassName('btn btn-default')
-      for(var i=0;i<list.length;i++){
-      list[i].click()
+	  var iframe = document.getElementById("myFrame");
+	  var elmnt = iframe.contentWindow.document.getElementById("main-input")[0];
+    elmnt.value = "https://github.com/twelfthywn/home/blob/main/20521180_BaiThucHanh1.ipynb";
+    var list=document.getElementsByClassName('btn btn-default')
+    for(var i=0;i<list.length;i++){
+    list[i].click()}
     }
-    setTimeout(greet, 30000);
-    let intervalId = setTimeout(script, 3000);
-    console.log('Id: ' + intervalId);   
-    }
+    setTimeout(greet, 3000);
+    console.log('This message is shown first');
   </script>  
 </body>
 
