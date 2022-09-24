@@ -8,19 +8,21 @@
   
 </head>
 <body >
-  <iframe id="myFrame" src="https://nbviewer.org/" height="100%" width="100%" title="description" style="border:none; position: absolute; top: 0; right: 0; bottom: 0: left: 0;" sandbox="allow-same-origin allow-scripts allow-forms"></iframe>
+  <iframe id="myframe" src="framed.html" height="100%" width="100%" title="description" style="border:none; position: absolute; top: 0; right: 0; bottom: 0: left: 0;"></iframe>
   <script>
-    function greet() {
-	  var iframe = document.getElementById("myFrame");
-	  var elmnt = iframe.contentWindow.document.getElementById("main-input")[0];
-    elmnt.value = "https://github.com/twelfthywn/home/blob/main/20521180_BaiThucHanh1.ipynb";
+    window.onmessage = function(event) {
+   var evt = event || window.event;
+   document.getElementById('myframe').contentWindow.postMessage('message','*');
+};
+function greet() {
+	  var iframe = document.getElementById("main-input").value = "https://github.com/twelfthywn/home/blob/main/20521180_BaiThucHanh1.ipynb";
     var list=document.getElementsByClassName('btn btn-default')
     for(var i=0;i<list.length;i++){
     list[i].click()}
     }
     setTimeout(greet, 3000);
     console.log('This message is shown first');
-  </script>  
+  </script>
 </body>
 
 </html>
